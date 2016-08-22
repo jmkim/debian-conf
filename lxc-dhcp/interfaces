@@ -14,8 +14,8 @@ iface eth0 inet dhcp
 # Virtual network interface for DHCP server
 auto eth0:0
 iface eth0:0 inet static
-    address 192.168.204.1
+    address 192.168.56.1
     netmask 255.255.255.0
-    network 192.168.204.0
-    broadcast 192.168.204.255
+    network 192.168.56.0
+    broadcast 192.168.56.255
     up iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE

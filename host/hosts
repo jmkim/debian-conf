@@ -6,5 +6,5 @@
 ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
 
-192.168.204.82	jktp.internal.hoodyprogrammer.com	jktp	ubuntu-20160701
-192.168.204.254	ap.internal.hoodyprogrammer.com	ap
+192.168.56.82	jktp.internal.hoodyprogrammer.com	jktp	ubuntu-20160701
+192.168.56.254	ap.internal.hoodyprogrammer.com	ap
