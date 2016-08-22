@@ -11,11 +11,12 @@ iface lo inet loopback
 allow-hotplug eth0
 iface eth0 inet dhcp
 
-# Virtual network interface for DHCP server
-auto eth0:0
-iface eth0:0 inet static
-    address 192.168.204.1
+# The network interface for Linux Containers
+auto lxc-bridge-nat
+iface lxc-bridge-nat inet static
+    bridge_ports none
+    bridge_fd 0
+    bridge_maxwait 0
+    address 192.168.83.1
     netmask 255.255.255.0
-    network 192.168.204.0
-    broadcast 192.168.204.255
     up iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
