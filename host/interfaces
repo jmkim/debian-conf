@@ -3,20 +3,34 @@
 
 source /etc/network/interfaces.d/*
 
+
 # The loopback network interface
 auto lo
 iface lo inet loopback
+
 
 # The primary network interface
 allow-hotplug eth0
 iface eth0 inet dhcp
 
-# The network interface for Linux Containers
-auto lxc-bridge-nat
-iface lxc-bridge-nat inet static
-    bridge_ports none
-    bridge_fd 0
-    bridge_maxwait 0
-    address 192.168.83.1
-    netmask 255.255.255.0
-    up iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+
+#
+# The network interfaces for Linux Containers
+#
+
+# Bridged network
+#auto br0
+#iface br0 inet dhcp
+#    bridge_ports eth0
+#    bridge_fd 0
+#    bridge_maxwait 0
+
+# Natted network
+#auto lxc-bridge-nat
+#iface lxc-bridge-nat inet static
+#    bridge_ports none
+#    bridge_fd 0
+#    bridge_maxwait 0
+#    address 192.168.83.1
+#    netmask 255.255.255.0
+#    up iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
