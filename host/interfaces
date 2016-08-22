@@ -3,16 +3,25 @@
 
 source /etc/network/interfaces.d/*
 
-
 # The loopback network interface
 auto lo
 iface lo inet loopback
-
 
 # The primary network interface
 allow-hotplug eth0
 iface eth0 inet dhcp
 
+# The network interface for isc-dhcp-server
+auto eth0:0
+iface eth0:0 inet static
+    address 192.168.83.1
+    netmask 255.255.255.0
+    network 192.168.83.0
+    broadcast 192.168.83.255
+    #post-up echo 1 > /proc/sys/net/ipv4/ip_forward
+    #post-up iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+    #pre-down echo 0 > /proc/sys/net/ipv4/ip_forward
+    #pre-down iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE
 
 #
 # The network interfaces for Linux Containers
@@ -31,6 +40,9 @@ iface eth0 inet dhcp
 #    bridge_ports none
 #    bridge_fd 0
 #    bridge_maxwait 0
-#    address 192.168.83.1
+#    address 192.168.56.1
 #    netmask 255.255.255.0
-#    up iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+#    #post-up echo 1 > /proc/sys/net/ipv4/ip_forward
+#    #post-up iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+#    #pre-down echo 0 > /proc/sys/net/ipv4/ip_forward
+#    #pre-down iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE

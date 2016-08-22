@@ -40,13 +40,6 @@ iptables -A FORWARD -i eth0 -o eth0 -j ACCEPT
 
 
 #
-# IP masquarading (for DHCP server)
-#
-iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
-
-
-
-#
 # Port forwarding
 #
 
