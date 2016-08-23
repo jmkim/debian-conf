@@ -50,7 +50,6 @@ iptables -A FORWARD -i eth0 -o eth0 -j ACCEPT
 
 # HTTP
 #iptables -A INPUT -p tcp --dport http -j ACCEPT
-#iptables -A INPUT -p tcp --dport 9999 -j ACCEPT
 
 # FTP
 #iptables -A INPUT -p tcp --dport ftp-data -j ACCEPT
@@ -58,6 +57,9 @@ iptables -A FORWARD -i eth0 -o eth0 -j ACCEPT
 
 # NTP
 iptables -A INPUT -p udp --dport ntp -j ACCEPT
+
+# bootpc
+iptables -A INPUT -p udp --dport bootpc -j ACCEPT
 
 
 #
