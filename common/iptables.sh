@@ -180,6 +180,7 @@ case "$1" in
 
     remove)
         iptables_flush_all
+        iptables_set_default_policy
         ;;
 
     show)
