@@ -4,7 +4,12 @@
 #
 # Flush all current rules
 #
-iptables -F
+iptables -t filter -F
+iptables -t nat -F
+iptables -t mangle -F
+iptables -t raw -F
+iptables -t security -F
+iptables -X
 
 
 #
