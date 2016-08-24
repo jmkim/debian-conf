@@ -47,10 +47,17 @@ iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
 
 
 #
+# IP masquerading (for DHCP server)
+#
+iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+
+
+#
 # Port forwarding
 #
-#iptables -A PREROUTING -t nat -i eth0 -p tcp --dport 9001 -j DNAT --to 192.168.56.13:80
-
+#iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 9001 -j DNAT --to 192.168.56.13:80
+#iptables -t nat -A PREROUTING -i eth0 -p tcp --dport http -j DNAT --to 192.168.56.14:80
+#iptables -t nat -A PREROUTING -i eth0 -p tcp --dport https -j DNAT --to 192.168.56.14:443
 
 #
 # Access for specific port (Out->In)
