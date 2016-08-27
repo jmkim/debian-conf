@@ -12,16 +12,12 @@ allow-hotplug eth0
 iface eth0 inet dhcp
 
 # The network interface for isc-dhcp-server
-auto eth0:0
-iface eth0:0 inet static
-    address 192.168.83.1
-    netmask 255.255.255.0
-    network 192.168.83.0
-    broadcast 192.168.83.255
-    #post-up echo 1 > /proc/sys/net/ipv4/ip_forward
-    #post-up iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
-    #pre-down echo 0 > /proc/sys/net/ipv4/ip_forward
-    #pre-down iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE
+#auto eth0:0
+#iface eth0:0 inet static
+#    address 192.168.83.1
+#    netmask 255.255.255.0
+#    network 192.168.83.0
+#    broadcast 192.168.83.255
 
 #
 # The network interfaces for Linux Containers
@@ -42,7 +38,3 @@ iface eth0:0 inet static
 #    bridge_maxwait 0
 #    address 192.168.56.1
 #    netmask 255.255.255.0
-#    #post-up echo 1 > /proc/sys/net/ipv4/ip_forward
-#    #post-up iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
-#    #pre-down echo 0 > /proc/sys/net/ipv4/ip_forward
-#    #pre-down iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE
