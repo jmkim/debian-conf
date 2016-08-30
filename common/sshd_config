@@ -1,7 +1,9 @@
 Port 22
 PasswordAuthentication no
 PermitRootLogin yes
-HostKey /etc/ssl/private/ssh.key
+HostKey /etc/ssh/ssh_host_ecdsa_key
+HostKey /etc/ssh/ssh_host_ed25519_key
+HostKey /etc/ssh/ssh_host_rsa_key
 
 #       $OpenBSD: sshd_config,v 1.84 2011/05/23 03:30:07 djm Exp $
 
