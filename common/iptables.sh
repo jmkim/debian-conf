@@ -4,8 +4,8 @@
 # Set the IP address of this machine
 #
 #SERVER_IP[0]="192.168.56.1"
-#SERVER_IP[1]="192.168.83.1"
-#SERVER_IP[2]="58.126.36.89"
+#SERVER_IP[1]="121.174.208.27"
+#SERVER_IP[2]="192.168.83.1"
 
 
 #
