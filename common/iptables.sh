@@ -31,9 +31,9 @@ iptables_set_rules()
     #
 #    for server_ip in ${SERVER_IP[*]}
 #    do
-#        iptables -t nat -A PREROUTING -i eth0 -p tcp -d $server_ip --dport 9001 -j DNAT --to 192.168.56.13:80
-#        iptables -t nat -A PREROUTING -i eth0 -p tcp -d $server_ip --dport http -j DNAT --to 192.168.56.14:80
-#        iptables -t nat -A PREROUTING -i eth0 -p tcp -d $server_ip --dport https -j DNAT --to 192.168.56.14:443
+#        iptables -t nat -A PREROUTING -i eth0 -p tcp -d $server_ip --dport http -j DNAT --to 192.168.83.23:80
+#        iptables -t nat -A PREROUTING -i eth0 -p tcp -d $server_ip --dport https -j DNAT --to 192.168.83.23:443
+#        iptables -t nat -A PREROUTING -i eth0 -p tcp -d $server_ip --dport 9001 -j DNAT --to 192.168.83.24:80
 #    done
 
     #
