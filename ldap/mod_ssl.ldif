@@ -1,0 +1,10 @@
+dn: cn=config
+changetype: modify
+add: olcTLSCACertificateFile
+olcTLSCACertificateFile: /etc/ssl/certs-hoodies/ca-chain.cert.pem
+-
+add: olcTLSCertificateFile
+olcTLSCertificateFile: /etc/ssl/certs-hoodies/ldap.hoodies.cert.pem
+-
+add: olcTLSCertificateKeyFile
+olcTLSCertificateKeyFile: /etc/ssl/private/ldap.hoodies.key.pem
