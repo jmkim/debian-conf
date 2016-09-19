@@ -3,40 +3,43 @@
 
 source /etc/network/interfaces.d/*
 
-# The loopback network interface
+# Loopback
 auto lo
 iface lo inet loopback
 
-# The primary network interface
+# Primary NIC as bridge, requires `bridge-utils' package
 allow-hotplug eth0
-iface eth0 inet dhcp
+iface eth0 inet manual
+auto br0
+iface br0 inet dhcp
+#iface br0 inet static
+    bridge_ports eth0
+    bridge_fd 0
+    bridge_maxwait 0
+#    address 210.125.112.52
+#    netmask 255.255.255.0
+#    network 210.125.112.0
+#    broadcast 210.125.112.255
+#    gateway 210.125.112.1
+#    # dns-* options are implemented by the resolvconf package, if installed
+#    dns-nameservers 203.250.124.200 8.8.8.8 8.8.4.4
+#    dns-search pknu.ac.kr
 
-# The network interface for isc-dhcp-server
-#auto eth0:0
-#iface eth0:0 inet static
+# Network aliasing for isc-dhcp-server
+#auto br0:0
+#iface br0:0 inet static
 #    address 192.168.56.1
 #    netmask 255.255.255.0
 #    network 192.168.56.0
 #    broadcast 192.168.56.255
 
-#
-# The network interfaces for Linux Containers
-#
-
-# Bridged network
-#auto br0
-#iface br0 inet dhcp
-#    bridge_ports eth0
-#    bridge_fd 0
-#    bridge_maxwait 0
-
-# Natted network
-#auto lxc-bridge-nat
-#iface lxc-bridge-nat inet static
-#    bridge_ports none
-#    bridge_fd 0
-#    bridge_maxwait 0
-#    address 192.168.83.1
-#    netmask 255.255.255.0
-#    dns-nameservers 192.168.83.11
-#    dns-search hoodies
+# NAT for lxc
+auto lxc-bridge-nat
+iface lxc-bridge-nat inet static
+    bridge_ports none
+    bridge_fd 0
+    bridge_maxwait 0
+    address 192.168.83.1
+    netmask 255.255.255.0
+    dns-nameservers 192.168.83.11
+    dns-search harukasan
