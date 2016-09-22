@@ -46,7 +46,7 @@ iptables_set_rules()
 #
 #    # FTP (passive)
 #    iptables -t filter -A INPUT -p tcp --dport ftp-data -j ACCEPT
-#    iptables -t filter -A INPUT -p tcp --sport 1024: --dport 1024: -j ACCEPT
+#    iptables -t filter -A INPUT -p tcp --sport 32768:60999 --dport 32768:60999 -j ACCEPT
 #
 #    # NTP
 #    iptables -t filter -A INPUT -p udp --dport ntp -j ACCEPT
