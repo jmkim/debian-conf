@@ -83,7 +83,7 @@ iptables_flush_all()
     iptables -t filter -F
 
     # Access for keeping the remote connection
-    iptables -t filter -A INPUT -p tcp --dport ssh -j ACCEPT    
+    iptables -t filter -A INPUT -p tcp --dport 9022 -j ACCEPT    
 
     iptables -t nat -F
     iptables -t mangle -F
