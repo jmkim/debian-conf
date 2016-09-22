@@ -42,4 +42,4 @@ iface lxc-bridge-nat inet static
     address 192.168.83.1
     netmask 255.255.255.0
     dns-nameservers 192.168.83.11
-    dns-search harukasan
+    dns-search vaai
