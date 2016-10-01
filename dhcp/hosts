@@ -4,11 +4,11 @@ ff02::1		ip6-allnodes
 ff02::2		ip6-allrouters
 
 192.168.83.2	dhcp.vaai	dhcp
+192.168.83.11	ns1.vaai	ns1
+192.168.83.12	ns2.vaai	ns2
 
 # Temporary table for name server pre-installation
 192.168.83.1	haruka.vaai	haruka
-192.168.83.11	ns1.vaai	ns1
-192.168.83.12	ns2.vaai	ns2
 192.168.83.21	ldap.vaai	ldap
 192.168.83.22	dbs.vaai	dbs
 192.168.83.23	ocsp.vaai	ocsp
