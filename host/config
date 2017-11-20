@@ -22,7 +22,7 @@ lxc.network.type = empty
 #lxc.network.ipv4 = 10.20.81.1/10.20.83.255
 #lxc.network.ipv4.gateway = 10.20.80.1
 # Container specific configuration
-lxc.include = /etc/lxc/default.conf
+lxc.include = /home/jmkim/.config/lxc/default.conf
 lxc.rootfs = /home/jmkim/.local/share/lxc/skel/rootfs
 lxc.rootfs.backend = dir
 lxc.utsname = skel
