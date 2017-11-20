@@ -1,0 +1,11 @@
+--- a/sysctl.conf	2017-11-21 06:10:43.716546218 +0900
++++ b/sysctl.conf	2017-11-21 06:10:50.772349134 +0900
+@@ -25,7 +25,7 @@
+ #net.ipv4.tcp_syncookies=1
+ 
+ # Uncomment the next line to enable packet forwarding for IPv4
+-#net.ipv4.ip_forward=1
++net.ipv4.ip_forward=1
+ 
+ # Uncomment the next line to enable packet forwarding for IPv6
+ #  Enabling this option disables Stateless Address Autoconfiguration

@@ -1,0 +1,14 @@
+[Unit]
+Description=Setup cpuset cgroup clone_children for LXC
+DefaultDependencies=no
+Conflicts=shutdown.target
+Before=sysinit.target shutdown.target
+
+[Service]
+Type=oneshot
+ExecStart=/bin/sh -c "echo 1 > /sys/fs/cgroup/cpuset/cgroup.clone_children"
+StandardOutput=null
+RemainAfterExit=yes
+
+[Install]
+WantedBy=sysinit.target
