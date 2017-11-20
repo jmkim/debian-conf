@@ -21,7 +21,7 @@ lxc.network.type = empty
 #lxc.network.flags = up
 #lxc.network.link = lxc-bridge-nat
 #lxc.network.hwaddr = 
-#lxc.network.ipv4 = 10.20.81.1/10.20.83.255
+#lxc.network.ipv4 = 10.20.81.1/22
 #lxc.network.ipv4.gateway = 10.20.80.1
 # Container specific configuration
 lxc.include = /home/jmkim/.config/lxc/default.conf
