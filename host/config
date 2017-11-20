@@ -11,8 +11,10 @@ lxc.include = /usr/share/lxc/config/debian.userns.conf
 lxc.arch = x86_64
 # Autoboot configuration
 #lxc.start.auto = 1
-lxc.start.order = 100       # lower is first
-lxc.start.delay = 0         # second
+#lxc.start.order = 100
+#                 100   -> lower is first
+#lxc.start.delay = 0
+#                 0     -> second
 # Network configuration
 lxc.network.type = empty
 #lxc.network.type = veth
