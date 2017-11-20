@@ -3,17 +3,17 @@
 
 source /etc/network/interfaces.d/*
 
-# Loopback
+# The loopback network interface
 auto lo
 iface lo inet loopback
 
-# Primary NIC as bridge, requires `bridge-utils' package
-allow-hotplug eth0
-iface eth0 inet manual
+# The primary network interface
+allow-hotplug ens192
+iface ens192 inet manual
 auto br0
 iface br0 inet dhcp
 #iface br0 inet static
-    bridge_ports eth0
+    bridge_ports ens192
     bridge_fd 0
     bridge_maxwait 0
 #    address 210.125.112.52
@@ -28,10 +28,10 @@ iface br0 inet dhcp
 # Network aliasing for isc-dhcp-server
 #auto br0:0
 #iface br0:0 inet static
-#    address 192.168.56.1
-#    netmask 255.255.255.0
-#    network 192.168.56.0
-#    broadcast 192.168.56.255
+#    address 10.20.56.1
+#    netmask 255.255.252.0
+#    network 10.20.56.0
+#    broadcast 10.20.59.255
 
 # NAT for lxc
 auto lxc-bridge-nat
@@ -39,7 +39,7 @@ iface lxc-bridge-nat inet static
     bridge_ports none
     bridge_fd 0
     bridge_maxwait 0
-    address 192.168.83.1
-    netmask 255.255.255.0
-    dns-nameservers 192.168.83.11
-    dns-search vaai
+    address 10.20.80.1
+    netmask 255.255.252.0
+#    dns-nameservers 10.20.80.11
+#    dns-search vaai

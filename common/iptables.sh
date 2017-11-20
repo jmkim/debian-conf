@@ -3,9 +3,9 @@
 #
 # Set the IP address of this machine
 #
-#SERVER_IP[0]="192.168.83.1"
-#SERVER_IP[1]="121.174.208.27"
-#SERVER_IP[2]="192.168.56.1"
+#SERVER_IP[0]="121.174.208.52"
+#SERVER_IP[1]="10.20.80.1"
+#SERVER_IP[2]="10.20.56.1"
 
 
 #
@@ -17,22 +17,25 @@ iptables_set_rules()
     #
     # Packet forwarding (for DHCP server)
     #
-#    iptables -t filter -A FORWARD -i eth0 -o eth0 -j ACCEPT
-#    iptables -t filter -A FORWARD -i lxc-bridge-nat -o eth0 -j ACCEPT
-#    iptables -t filter -A FORWARD -i eth0 -o lxc-bridge-nat -j ACCEPT
+#    iptables -t filter -A FORWARD -i br0 -o br0 -j ACCEPT
+#    iptables -t filter -A FORWARD -i lxc-bridge-nat -o lxc-bridge-nat -j ACCEPT
+#
+#    iptables -t filter -A FORWARD -i br0 -o lxc-bridge-nat -j ACCEPT
+#    iptables -t filter -A FORWARD -i lxc-bridge-nat -o br0 -j ACCEPT
 
     #
     # IP masquerading (for DHCP server)
     #
-#    iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+#    iptables -t nat -A POSTROUTING -o br0 -j MASQUERADE
+#    iptables -t nat -A POSTROUTING -o lxc-bridge-nat -j MASQUERADE
 
     #
     # Port forwarding
     #
-#    for server_ip in ${SERVER_IP[*]}
+#    for server_ip in ${SERVER_IP[@]}
 #    do
-#        iptables -t nat -A PREROUTING -i eth0 -p tcp -d $server_ip --dport http -j DNAT --to 192.168.83.31:80
-#        iptables -t nat -A PREROUTING -i eth0 -p tcp -d $server_ip --dport https -j DNAT --to 192.168.83.31:443
+#        iptables -t nat -A PREROUTING -i br0 -p tcp -d $server_ip --dport http -j DNAT --to 10.20.81.31:80
+#        iptables -t nat -A PREROUTING -i br0 -p tcp -d $server_ip --dport https -j DNAT --to 10.20.81.31:443
 #    done
 
     #
@@ -60,16 +63,14 @@ iptables_set_rules()
     #
     # Access for ICMP (ping)
     #
-#    for server_ip in ${SERVER_IP[*]}
-#    do
-#        # Incoming
-#        iptables -t filter -A INPUT -p icmp --icmp-type echo-request -s 0/0 -d $server_ip -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
-#        iptables -t filter -A OUTPUT -p icmp --icmp-type echo-reply -s $server_ip -d 0/0 -m state --state ESTABLISHED,RELATED -j ACCEPT
+#    # Incoming
+#    iptables -t filter -A INPUT -p icmp --icmp-type echo-request -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
+#    iptables -t filter -A OUTPUT -p icmp --icmp-type echo-reply -m state --state ESTABLISHED,RELATED -j ACCEPT
 #
-#        # Outgoing
-#        iptables -t filter -A OUTPUT -p icmp --icmp-type echo-request -s $server_ip -d 0/0 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
-#        iptables -t filter -A INPUT -p icmp --icmp-type echo-reply -s 0/0 -d $server_ip -m state --state ESTABLISHED,RELATED -j ACCEPT
-#    done
+#    # Outgoing
+#    iptables -t filter -A OUTPUT -p icmp --icmp-type echo-request -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
+#    iptables -t filter -A INPUT -p icmp --icmp-type echo-reply -m state --state ESTABLISHED,RELATED -j ACCEPT
+
     echo "done."
 }
 

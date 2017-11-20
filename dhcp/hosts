@@ -1,19 +1,22 @@
 127.0.0.1	localhost
+10.20.80.1	takane.vaai	takane
+
+# The following lines are desirable for IPv6 capable hosts
 ::1		localhost ip6-localhost ip6-loopback
 ff02::1		ip6-allnodes
 ff02::2		ip6-allrouters
 
-192.168.83.2	dhcp.vaai	dhcp
-192.168.83.11	ns1.vaai	ns1
-192.168.83.12	ns2.vaai	ns2
+# Static table for DHCP and name server
+10.20.80.2	dhcp.vaai	dhcp
+10.20.80.11	ns1.vaai	ns1
+10.20.80.12	ns2.vaai	ns2
 
 # Temporary table for name server pre-installation
-192.168.83.1	haruka.vaai	haruka
-192.168.83.21	ldap.vaai	ldap
-192.168.83.22	dbs.vaai	dbs
-192.168.83.23	ocsp.vaai	ocsp
-192.168.83.31	http.vaai	http
-192.168.83.32	aws.vaai	aws
-192.168.83.33	pmaws.vaai	pmaws
-192.168.83.34	nws.vaai	nws
-192.168.83.61	yukiho.vaai	yukiho
+#10.20.81.21	ldap.vaai	ldap
+#10.20.81.22	dbs.vaai	dbs
+#10.20.81.23	ocsp.vaai	ocsp
+#10.20.81.31	http.vaai	http
+#10.20.81.32	aws.vaai	aws
+#10.20.81.33	pmaws.vaai	pmaws
+#10.20.81.34	nws.vaai	nws
+#10.20.81.61	yukiho.vaai	yukiho

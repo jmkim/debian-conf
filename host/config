@@ -1,5 +1,6 @@
 # Template used to create this container: /usr/share/lxc/templates/lxc-download
-# Parameters passed to the template: -d debian -r jessie -a amd64
+# Parameters passed to the template: -d debian -r stretch -a amd64
+# Template script checksum (SHA-1): 740c51206e35463362b735e68b867876048a8baf
 # For additional config options, please look at lxc.container.conf(5)
 # Uncomment the following line to support nesting containers:
 #lxc.include = /usr/share/lxc/config/nesting.conf
@@ -18,11 +19,10 @@ lxc.network.type = empty
 #lxc.network.flags = up
 #lxc.network.link = lxc-bridge-nat
 #lxc.network.hwaddr = 
-#lxc.network.ipv4 = 192.168.83.10/24 192.168.83.255
-#lxc.network.ipv4.gateway = 192.168.83.1
+#lxc.network.ipv4 = 10.20.81.1/10.20.83.255
+#lxc.network.ipv4.gateway = 10.20.80.1
 # Container specific configuration
-lxc.id_map = u 0 427680 65536
-lxc.id_map = g 0 427680 65536
+lxc.include = /etc/lxc/default.conf
 lxc.rootfs = /home/jmkim/.local/share/lxc/skel/rootfs
 lxc.rootfs.backend = dir
 lxc.utsname = skel
