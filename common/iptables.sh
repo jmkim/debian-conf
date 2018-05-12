@@ -7,7 +7,7 @@ iptables_set_rules()
 {
     echo -n "Setting new iptables rules... "
     #
-    # Packet forwarding (for DHCP server)
+    # Packet forwarding (for gateway)
     #
 #    iptables -t filter -A FORWARD -i br0 -o br0 -j ACCEPT
 #    iptables -t filter -A FORWARD -i lxc-bridge-nat -o lxc-bridge-nat -j ACCEPT
@@ -16,7 +16,7 @@ iptables_set_rules()
 #    iptables -t filter -A FORWARD -i lxc-bridge-nat -o br0 -j ACCEPT
 
     #
-    # IP masquerading (for DHCP server)
+    # IP masquerading (for gateway)
     #
 #    iptables -t nat -A POSTROUTING -o br0 -j MASQUERADE
 #    iptables -t nat -A POSTROUTING -o lxc-bridge-nat -j MASQUERADE
