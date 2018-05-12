@@ -39,6 +39,9 @@ iptables_set_rules()
 #    # HTTPS
 #    iptables -t filter -A INPUT -p tcp --dport https -j ACCEPT
 #
+#    # FTP
+#    iptables -t filter -A INPUT -p tcp --dport ftp -j ACCEPT
+#
 #    # FTP (passive)
 #    iptables -t filter -A INPUT -p tcp --dport ftp-data -j ACCEPT
 #    iptables -t filter -A INPUT -p tcp --sport 32768:60999 --dport 32768:60999 -j ACCEPT
