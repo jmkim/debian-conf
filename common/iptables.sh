@@ -25,7 +25,10 @@ iptables_set_rules()
     # Port forwarding
     #
 #    iptables -t nat -A PREROUTING -i br0 -p tcp --dport http -j DNAT --to 10.20.81.31:80
+#    iptables -t nat -A PREROUTING -i br0 -p tcp --dport http -j LOG --log-prefix='[netfilter] [http] '
+
 #    iptables -t nat -A PREROUTING -i br0 -p tcp --dport https -j DNAT --to 10.20.81.31:443
+#    iptables -t nat -A PREROUTING -i br0 -p tcp --dport https -j LOG --log-prefix='[netfilter] [https] '
 
     #
     # Access for specific port (Out->In)
